@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Registration</title>
+</head>
+
+<body>
+  <div style="margin: 100px;">
+    <form class="row g-3" method="post">
+
+      <div class="col-md-4">
+        <label  class="form-label">Full name</label>
+        <input type="text" class='form-control {% if "full_name" in errors %} is-invalid {% endif %}'
+          id="validationDefault01" name="full_name" value="Kaleem ullah" required>
+        {% if "full_name" in errors %}
+        <div class="alert alert-danger" role="alert">
+          {{ errors.full_name  }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">CNIC</label>
+        <input type="text" class='form-control {% if "cnic" in errors%} is-invalid {% endif%}' id="validationDefault02"
+          name="cnic" value="3520236002797" required>
+        {% if "cnic" in errors %}
+        <div class="alert alert-danger" role="alert">
+          {{ errors.cnic  }}
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label"> Mother name</label>
+        <input type="text" class='form-control {% if "mother_name" in errors%} is-invalid {% endif%}'
+          id="validationDefault02" name="mother_name" value="Kaleem's Mother" required>
+        {% if "mother_name" in errors %}
+        <div class="alert alert-danger" role="alert">
+          {{ errors.cnic }}
+        </div>
+        {% endif %}
+      </div>
+      
+      <div class="col-md-4">
+        <label for="validationDefault02" class="form-label">Mother CNIC</label>
+        <input type="text" class="form-control {%if 'mother_cnic' in errors %} is-invalid{% endif%}"
+          id="validationDefault02" name="mother_cnic" value="3520212345678" required>
+        {% if "mother_cnic" in errors%}
+        <div class="alert alert-danger" role="alert">
+          {{ errors.mother_cnic }}
+        </div>
+        {%endif%}
+      </div>
+      <div class="col-md-4">
+        <label for="validationDefaultUsername" class="form-label">Email</label>
+        <div class="input-group">
+          <span class="input-group-text" id="inputGroupPrepend2">@</span>
+          <input type="text" class='form-control {% if "email" in errors%} is-invalid{%endif%}'
+            id="validationDefaultUsername" name="email" value="kaleemtanveer2@gmail.com"
+            aria-describedby="inputGroupPrepend2" required>
+        </div>
+        {% if "email" in errors%}
+        <div class="alert alert-danger" role="alert">
+          {{errors.email}}
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault05" class="form-label">Password</label>
+        <input type="text" class="form-control" id="validationDefault05" value="123456" name="password" required>
+        {% if "password" in errors%}
+        <div class="alert alert-danger" role="alert">
+          {{errors.password}}
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-md-3">
+        <label for="validationDefault05" class="form-label">Re-Password</label>
+        <input type="text" class="form-control" id="validationDefault05" value="123456" name="re_password" required>
+        {% if "re_password" in errors%}
+        <div class="alert alert-danger" role="alert">
+          {{errors.re_password}}
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-md-6">
+        <label for="validationDefault03" class="form-label">Address</label>
+        <input type="text" class="form-control {% if 'address' in errors%} is-invalid {%endif%}"
+          id="validationDefault03" value="373 Nishter Block " name="address" required>
+        {% if "address" in errors%}
+        <div class="alert alert-danger" role="alert">
+          {{errors.address}}
+        </div>
+        {% endif %}
+      </div>
+
+
+      <div class="col-md-3">
+        <label for="validationDefault05" class="form-label">Mobile No.</label>
+        <input type="text" class="form-control {% if 'mobile' in errors %} is-invalid {% endif%}"
+          id="validationDefault05" value="03324776261" name="mobile_no" required>
+        {% if "mobile" in errors %}
+        <div class="alert alert-danger" role="alert">
+          {{errors.mobile}}
+        </div>
+        {% endif %}
+      </div>
+      
+      <label for="validationDefault02" class="form-label">Select Category</label>
+      <div class="form-check form-check-inline">
+        
+        <input class="form-check-input" type="radio" name="category" id="teacher" value="teacher">
+        <label class="form-check-label" for="teacher">Teacher</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="category" id="student" value="student" >
+        <label class="form-check-label" for="student">Student</label>
+        {% if "category" in errors %}
+        <div class="alert alert-danger" role="alert">
+          {{errors.category}}
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" checked name="is-agree" id="invalidCheck2" required>
+          <label class="form-check-label" for="invalidCheck2">
+            Agree to terms and conditions
+          </label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit"> Submit form</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
